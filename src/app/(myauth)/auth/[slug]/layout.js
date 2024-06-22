@@ -24,8 +24,8 @@ const raleway = localFont({
 })  
 
 export const metadata = {
-  title: "auth page",
-  description: "auth page description",
+  title: "Glow Scout",
+  description: "Glow Scout is a beauty and wellness platform that connects you to the best spas and salons in your area. Book your next appointment with Glow Scout.",
 };
 
 export default function RootLayout({ children }) {
