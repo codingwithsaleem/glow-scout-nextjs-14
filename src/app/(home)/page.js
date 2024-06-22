@@ -116,7 +116,9 @@ export default function Widget() {
 
       {/* tranding treatment start */}
 
+      <div className="container">
       <TrandingTreatment />
+      </div>
     
       {/* tranding treatment end */}
 
