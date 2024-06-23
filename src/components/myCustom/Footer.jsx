@@ -15,17 +15,17 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-2 text-lg">Quick Links</h3>
           <ul className='py-2'>
-            <li><Link href="#" className="hover:underline">Home</Link></li>
-            <li><Link href="#" className="hover:underline">Treatments</Link></li>
-            <li><Link href="#" className="hover:underline">Spas</Link></li>
-            <li><Link href="#" className="hover:underline">Blog</Link></li>
+            <li><Link href="/" className="hover:underline">Home</Link></li>
+            <li><Link href="/treatment" className="hover:underline">Treatments</Link></li>
+            <li><Link href="/spas" className="hover:underline">Spas</Link></li>
+            <li><Link href="/blog" className="hover:underline">Blog</Link></li>
           </ul>
         </div>
         <div>
-          <h3 className=" mb-2">Privacy Policy</h3>
+          <h3 ><Link href="/privacy-policy" className="hover:underline">Privacy Policy </Link></h3>
           <ul className='py-2'>
-            <li><Link href="#" className="hover:underline">Terms & Conditions</Link></li>
-            <li><Link href="#" className="hover:underline">About Us</Link></li>
+            <li><Link href="/terms-conditions" className="hover:underline">Terms & Conditions</Link></li>
+            <li><Link href="/about" className="hover:underline">About Us</Link></li>
           </ul>
         </div>
         <div>
