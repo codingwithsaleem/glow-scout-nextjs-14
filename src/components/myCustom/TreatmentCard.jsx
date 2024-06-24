@@ -11,8 +11,8 @@ const TreatmentCard = ({image,imageAlt , label, title, description}  ) => {
                         alt={imageAlt}
                         // fill={true}
                         style={{objectFit: "cover"}}
-                        height={300}
-                        width={300}
+                        height={500}
+                        width={800}
                       />
                       {
                         label ? <p className='absolute top-0 right-0 p-3 bg-lighttext rounded-b-lg rounded-tr-lg'>{label}</p> : null

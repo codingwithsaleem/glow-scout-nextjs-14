@@ -4,7 +4,7 @@
     children
   }) => {
     return ( 
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="mx-auto w-full max-w-6xl">
         {children}
       </div>
      );
