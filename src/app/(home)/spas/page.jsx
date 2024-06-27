@@ -1,5 +1,6 @@
 import TreatmentCard from "@/components/myCustom/TreatmentCard";
 import SpasSearch from "@/components/spasComponent/SpasSearch";
+import Link from "next/link";
 
 const page = () => {
   
@@ -135,7 +136,9 @@ const page = () => {
       <div className="container my-5">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6 mb-2">
           {dummyData.map((item, index) => (
+            <Link href={`spa-single/${index}`} key={index}>
             <TreatmentCard key={index} {...item} />
+            </Link>
           ))}
         </div>
       </div>

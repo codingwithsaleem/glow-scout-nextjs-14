@@ -7,9 +7,9 @@ import { Input } from "@/components/ui/input";
 import VisitSpa from "@/components/spasComponent/VisitSpa";
 
 
-const page = () => {
+const page = ({params}) => {
 
-  
+  const id = params.id;
 
   let dummyData = [
     {
