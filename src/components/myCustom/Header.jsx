@@ -45,7 +45,7 @@ const Header = () => {
     <Button asChild variant="ghost" key={i} size="lg">
       <Link
         href={route.href}
-        className="font-raleway text-[#351120] font-[600]"
+        className="font-raleway text-[#351120] font-bold text-lg "
       >
         {route.label}
       </Link>
@@ -61,7 +61,7 @@ const Header = () => {
                 type="submit"
                 variant="myCustom"
                 size="lg"
-                className=" hidden md:block rounded-full font-raleway text-[#F6E9CE]"
+                className=" hidden md:block rounded-full font-raleway text-[#F6E9CE] px-4"
                 aria-label="login"
                 >
                 <Link href="/auth/user">
