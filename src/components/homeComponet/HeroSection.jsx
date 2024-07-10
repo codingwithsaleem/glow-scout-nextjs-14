@@ -28,7 +28,7 @@ const HeroSection = () => {
         <h2 className="text-6xl md:text-[80px] font-normal mb-2 font-valky leading-[80px] md:leading-[150px]">
           Glow Scout
         </h2>
-        <p className="md:text-lg font-normal font-raleway mb-6 pr-4">
+        <p className="md:text-lg font-normal font-raleway mb-6 pr -4">
         &rdquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut nibh
           faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Ut ut nibh faucibus.&rdquo;
