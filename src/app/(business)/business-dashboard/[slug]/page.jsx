@@ -4,7 +4,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import AnalyticsComponent from '@/components/businessDashboard/analyticsComponent'
+import AnalyticsComponent from '../../../../components/businessDashboard/analyticsComponent'
 
 const page = () => {
   return (
