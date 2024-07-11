@@ -20,7 +20,7 @@ const HeroSection = () => {
         />
       </div> */}
       <div className="flex-1  text-left  md:pr-20">
-        <h1 className=" text-5xl md:text-5xl font-thin font-raleway text-darkMahron">
+        <h1 className=" text-5xl md:text-6xl font-thin font-raleway text-darkMahron">
           REVEAL YOUR <br />
           BEAUTY WITH
         </h1>
