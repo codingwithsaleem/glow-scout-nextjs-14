@@ -1,9 +1,11 @@
-import TreatmentCard from "@/components/myCustom/TreatmentCard";
-import SpasSearch from "@/components/spasComponent/SpasSearch";
+"use client";
+
+import TreatmentCard from "@/components/reuseableComponenet/TreatmentCard";
 import Link from "next/link";
+import FilterSearch from "@/components/reuseableComponenet/FilterSearch";
+import { SearchSchema } from "@/validation/common.validation";
 
 const page = () => {
-  
   let dummyData = [
     {
       image: "/images/salon-spas/salon-1.png",
@@ -119,6 +121,25 @@ const page = () => {
     },
   ];
 
+  const selectitems = [
+    {
+      value: "saveMoney",
+      label: "Save Money",
+    },
+    {
+      value: "saveTime",
+      label: "Save Time",
+    },
+    {
+      value: "saveBoth",
+      label: "Save Both",
+    },
+  ];
+
+  function spaSubmitHandler(data) {
+    console.log("Spa search submitted:", data);
+  }
+
   return (
     <div className=" py-20 md:mt-6 font-raleway relative isolate border-t-2 border-darkMahron">
       <div className="text-center pb-5">
@@ -129,15 +150,21 @@ const page = () => {
         </p>
       </div>
 
-      <div className="my-5">
-       <SpasSearch />
-      </div>
+      
+        <FilterSearch
+          onSubmit={spaSubmitHandler}
+          schema={SearchSchema}
+          placeholder="Filters"
+          buttonText="Book Now!"
+          selectItems={selectitems}
+        />
+      
 
       <div className="container my-5">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6 mb-2">
           {dummyData.map((item, index) => (
             <Link href={`spa-single/${index}`} key={index}>
-            <TreatmentCard key={index} {...item} />
+              <TreatmentCard key={index} {...item} />
             </Link>
           ))}
         </div>
