@@ -10,9 +10,9 @@ export default function page() {
   return (
     <>
       <HeroSection />
-      <div className="mb-5">
+      {/* <div className="mb-5">
         <BookNow />
-      </div>
+      </div> */}
 
       {/* home scot work start  */}
 

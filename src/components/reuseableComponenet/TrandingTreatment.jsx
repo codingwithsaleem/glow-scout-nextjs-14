@@ -85,14 +85,14 @@ const TrandingTreatment = () => {
       />
 
       <div className="text-center">
-        <h2 className="text-5xl px-6">Trending Treatments</h2>
+        <h2 className="text-5xl px-6 md:mt-16 font-thin">Trending Treatments</h2>
         <p className="mt-2 text-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut nibh
           faucibus.
         </p>
       </div>
 
-      <div className="my-20 z-50">
+      <div className="my-16 z-50 container">
         <Carousel
           opts={{ align: "start" }}
           className="w-full md:container ml-8 overflow-hidden"

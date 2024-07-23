@@ -9,8 +9,8 @@ const TreatmentCard = ({ image, imageAlt, label, title, description }) => {
           src={image}
           alt={imageAlt}
           style={{ objectFit: "cover" }}
-          height={500}
-          width={800}
+          height={400}
+          width={400}
         />
         {label ? (
           <p className="absolute top-0 right-0 p-3 bg-lighttext rounded-b-lg rounded-tr-lg">
@@ -19,7 +19,7 @@ const TreatmentCard = ({ image, imageAlt, label, title, description }) => {
         ) : null}
       </div>
       <div className="pt-2">
-        <h3 className="text-xl font-bold">{title}</h3>
+        <h3 className="text-xl font-[800]">{title}</h3>
         <p className=" text-sm">{description}</p>
       </div>
     </div>
