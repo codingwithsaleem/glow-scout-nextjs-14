@@ -110,3 +110,9 @@
     top: 270px;
   }
 }
+
+@media(max-width: 410px){
+  .mycustomselect{
+    font-size: 10px;;
+  }
+}
