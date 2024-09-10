@@ -3,15 +3,17 @@ import Link from "next/link";
 
 const Policy = ({ title, content }) => {
   return (
-    <div className="container py-20 md:mt-6 font-raleway  mb-4">
+    <div className="container py-6 font-raleway  mb-4">
       <div>
-        <div className="text-center pb-10">
-          <h2 className="text-4xl">{title}</h2>
-          <p className="mt-2 text-lg">{content}</p>
-        </div>
-        <p className="px-6">
+      <div className="text-center text-darkMahron pb-5">
+        <h2 className="text-4xl md:text-6xl font-ralewayLight">  {title} </h2>
+        <p className="m-2 text-sm md:text-lg">
+         {content}
+        </p>
+      </div>
+        <p className="px-1 md:px-6">
           This {title} outlines the manner in which{" "}
-          <Link href={"/"} className=" font-bold text-darkMahron">
+          <Link href={"/"} className=" font-bold text-darkMahron"> 
             Glow Scout
           </Link>{" "}
           collects, uses, maintains, and discloses information gathered from
@@ -21,9 +23,8 @@ const Policy = ({ title, content }) => {
           Policy.
         </p>
       </div>
-
       <div className="my-5">
-        <div className="p-6 text-darkMahron">
+        <div className="p-1 md:p-6 text-darkMahron">
           <div className="space-y-6">
             <div>
               <h2 className="font-semibold text-lg">

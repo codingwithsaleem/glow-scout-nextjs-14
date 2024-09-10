@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +8,12 @@ import {
 } from "@/components/ui/carousel";
 import TreatmentCard from "./TreatmentCard";
 import Image from "next/image";
+
+import { Raleway } from 'next/font/google'
+const Raleway1 = Raleway({
+  weight: '300',
+  subsets: ['latin'],
+})
 
 const treatments = [
   {
@@ -75,7 +80,7 @@ const treatments = [
 
 const TrandingTreatment = () => {
   return (
-    <div className="mx-auto py-20  font-raleway relative rounded-full border-0">
+    <div className="mx-auto py-10 md:py-20  font-raleway relative rounded-full border-0">
       <Image
         width={300}
         height={300}
@@ -85,23 +90,23 @@ const TrandingTreatment = () => {
       />
 
       <div className="text-center">
-        <h2 className="text-5xl px-6 md:mt-16 font-thin">Trending Treatments</h2>
-        <p className="mt-2 text-lg">
+        <h2 className={`text-5xl px-6 md:mt-16 font-ralewayLight`}>Trending Treatments</h2>
+        <p className="mt-2 text-lg px-4">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut nibh
           faucibus.
         </p>
       </div>
 
-      <div className="my-16 z-50 container">
+      <div className="mt-6 md:my-16 z-50 pl-6 md:pl-0 md:container flex justify-center items-center">
         <Carousel
           opts={{ align: "start" }}
-          className="w-full md:container ml-8 overflow-hidden"
+          className="w-full md:container md:ml-8 overflow-hidden"
         >
-          <CarouselContent className="flex space-x-4">
+          <CarouselContent className="flex">
             {treatments.map((treatment, index) => (
               <CarouselItem
                 key={index}
-                className="basis-1/2  md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                className="basis-1/2  md:basis-1/3 lg:basis-1/4 xl:basis-1/5 2xl:basis-1/6"
               >
                 <TreatmentCard {...treatment} />
               </CarouselItem>

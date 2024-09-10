@@ -1,49 +1,110 @@
-"use Client";
-import SignupBusiness from "@/components/auth/SignupBusiness";
-import SignupUser from "@/components/auth/SignupUser";
-import Login from "@/components/auth/Login";
-import ForgotPassword from "@/components/auth/ForgotPassword";
-import { notFound } from "next/navigation";
+"use client";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import DynamicAuthForm from "@/components/reuseableComponenet/DynamicAuthForm";
+import { LoginSchema, SignupSchema, ForgotSchema ,OtpSchema ,resetSchema } from "@/validation/auth.validation";
+import axiosInstance from '@/axiosInstance';
+import { verifyOtp ,resetPassword } from "@/API/auth.api";
 
 const AuthCommon = ({ params }) => {
   const slug = params.slug;
+  const currentUserEmail= localStorage.getItem('email');
+  console.log(currentUserEmail)
+
+  const forms = {
+    "user": {
+      formType: "signup",
+      title: "Sign Up as User",
+      schema: SignupSchema,
+      linkText: "Are you a business? ",
+      linkHref: "/auth/business",
+      onSubmit: (data) => axiosInstance.post('/auth/register', { ...data, role: 'user', loginType: 'EMAIL_PASSWORD' },{withCredentials:true}),
+      btnLink: "/auth/login",
+    },
+    "business": {
+      formType: "signup",
+      title: "Sign Up as Business",
+      schema: SignupSchema,
+      linkText: "Are you a user? ",
+      linkHref: "/auth/user",
+      onSubmit: (data) => axiosInstance.post('/auth/register', { ...data, role: 'business', loginType: 'EMAIL_PASSWORD' },{withCredentials:true}),
+      btnLink: "/auth/login",
+    },
+    "login": {
+      formType: "login",
+      title: "Log In",
+      schema: LoginSchema,
+      linkText: "Forgot password? ",
+      linkHref: "/auth/forgot-password",
+      onSubmit: (data) => axiosInstance.post('/auth/login', data,{withCredentials:true}),
+      btnLink: "/setting",
+    },
+    "forgot-password": {
+      formType: "forgot-password",
+      title: "Forgot Password?",
+      schema: ForgotSchema,
+      linkText: null,
+      linkHref: null,
+      onSubmit: (data) => axiosInstance.post('/auth/otp', data),
+      btnLink: "/auth/user",
+    },
+    "verify-otp":{
+      formType: "verify-otp",
+      title: "Verify User?",
+      schema: OtpSchema,
+      linkText: null,
+      linkHref: "/auth/verify-otp",
+      onSubmit: verifyOtp,
+      btnLink: "/auth/verify-otp",
+    },
+    "reset-password":{
+      formType: "reset-password",
+      title: "Reset Password?",
+      schema: resetSchema,
+      linkText: null,
+      linkHref: "/auth/reset-password",
+      onSubmit: resetPassword,
+      btnLink: "/auth/reset-password",
+    }
+  };
+
+  const formProps = forms[slug];
+
+  if (!formProps) return notFound();
+
   return (
-    <div className=" relative flex flex-col md:flex-row min-h-screen bg-[#351120] md:h-screen">
+    <div className="relative flex flex-col md:flex-row min-h-screen bg-[#351120]">
       <Image
         width={300}
         height={300}
         alt="bg"
         src={"/images/shadow-2.png"}
-        className=" absolute rotate-[60deg] opacity-50	 top-[-150px] left-0 border-none  rounded-xl  hidden md:block"
+        className="absolute rotate-[60deg] opacity-50 top-[-150px] left-0 border-none rounded-xl hidden md:block"
       />
-      <div className="bg-[#351120] text-lighttext px-20 py-16 md:py-28  md:w-1/2 flex flex-col justify-center">
-        <h1 className="text-3xl md:text-6xl font-light mb-4 font-raleway">
+      <div className="bg-[#351120] text-lighttext px-20 py-16 md:py-28 md:w-1/2 flex flex-col justify-center">
+        <h1 className="text-2xl md:text-6xl  mb-4 font-ralewayThin">
           REVEAL YOUR <br />
           BEAUTY WITH
         </h1>
         <h2 className="text-7xl md:text-8xl font-normal mb-4 font-valky leading-[80px] md:leading-[100px]">
           Glow <br /> Scout
         </h2>
-        <p className="text-lg font-normal font-raleway text-lighttext">
+        <p className="text-lg font-normal font-raleway text-[#EEEEEE]">
           &rdquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
           nibh faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing
           elit. Ut ut nibh faucibus.&rdquo;
         </p>
       </div>
-      <div className="bg-white p-10 md:w-1/2 flex flex-col justify-center rounded-tl-[60px] rounded-bl-3xl font-raleway">
-        {slug === "user" ? (
-          <SignupUser />
-        ) : slug === "business" ? (
-          <SignupBusiness />
-        ) : slug === "login" ? (
-          <Login />
-        ) : slug === "forgot-password" ? (
-          <ForgotPassword />
-        ) : (
-          notFound()
-        )}
+      <div className="bg-white p-10 md:w-1/2 flex flex-col justify-center rounded-tl-[60px] rounded-bl-3xl font-raleway z-30">
+        <DynamicAuthForm {...formProps} />
       </div>
+      <Image
+        width={300}
+        height={300}
+        alt="bg"
+        src={"/images/shadow-3.png"}
+        className="absolute rotate-[0deg] opacity-50 bottom-[0px] right-0 border-none rounded-xl hidden md:block z-0"
+      />
     </div>
   );
 };
