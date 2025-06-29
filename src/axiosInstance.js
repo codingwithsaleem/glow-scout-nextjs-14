@@ -3,7 +3,7 @@ import { parseCookies, destroyCookie } from 'nookies';
 import {jwtDecode} from 'jwt-decode';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://gs.yameenyousuf.com/api',
+  baseURL: 'http://localhost:5007/api',
   headers: {
     'Content-Type': 'application/json',
   },
